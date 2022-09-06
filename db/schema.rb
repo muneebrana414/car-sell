@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20220906102345) do
     t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "username"
-    t.string   "phone_number"
+    t.string   "username",                            null: false
+    t.string   "phone_number",                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

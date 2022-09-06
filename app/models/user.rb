@@ -7,7 +7,7 @@ class User < ApplicationRecord
   :confirmable, authentication_keys: [:login]
 
   validates :username, length: { in: 6..30 }
-  validates :encrypted_password, format: { with: /\A(?=.*\d)(?=.*([A-Z]))([\x20-\x7E]|[^\x00-\x7F]){6,100}\z/ }
+  validates :password, format: { with: /\A(?=.*\d)(?=.*([A-Z]))([\x20-\x7E]|[^\x00-\x7F]){6,100}\z/ }
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
