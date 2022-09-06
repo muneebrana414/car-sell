@@ -9,8 +9,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div>
+      <%= render "layouts/header"%>
+      <% if notice %>
+        <div class="position-absolute toast-container top-0 end-0 p-5">
+          <%= render partial: "layouts/toaster", locals:{:message => notice}%>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

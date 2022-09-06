@@ -8,6 +8,8 @@ end
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]
+# Use bootstrap for design'
+gem 'bootstrap', '~> 5.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use postgresql as the database for Active Record
