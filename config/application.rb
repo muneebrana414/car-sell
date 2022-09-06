@@ -16,6 +16,9 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Load dotenv only in development or test environment
+Dotenv::Railtie.load
+
 module Carsell
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
