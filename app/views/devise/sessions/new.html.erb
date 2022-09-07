@@ -5,11 +5,25 @@
     <div class="field mb-3 text-start">
       <%= f.label :login, class: "form-label" %><br />
       <%= f.text_field :login, class: "form-control" %>
+      <% if resource.errors.any? %>
+        <div class="invalid-feedback d-block">
+          <% resource.errors.full_messages_for(:login).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="field mb-3 text-start">
       <%= f.label :password, class: "form-label" %><br />
       <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      <% if resource.errors.any? %>
+        <div class="invalid-feedback d-block">
+          <% resource.errors.full_messages_for(:password).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <% if devise_mapping.rememberable? %>
