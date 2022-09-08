@@ -1,0 +1,80 @@
+<div class="container-fluid border rounded shadow my-3 py-2 text-center" style="width: 52rem">
+  <%= render "step-count" %>
+
+  <%= form_for @vehicle, url: next_wizard_path, method: 'PUT' do |f| %>
+    <div class="row g-3 align-items-center my-2">
+      <%= f.hidden_field :vehicle_id, value: params[:vehicle_id] %>
+      <div class="col-2 text-start">
+        <%= f.label "#{:city}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "City Name" , class: " mx-2 form-control"%>
+      </div>
+      <div class="col-2 text-end">
+        <%= f.label "#{:milage}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :milage, autofocus: true, autocomplete: "milage", placeholder: "Milage (Km/h)" , class: "mx-2 form-control"%>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-2">
+      <div class="col-2 text-start">
+        <%= f.label "#{:model}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :model, autofocus: true, autocomplete: "model", placeholder: "Make By" , class: " mx-2 form-control"%>
+      </div>
+      <div class="col-2 text-end">
+        <%= f.label "#{:engine_type}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :engine_type, autofocus: true, autocomplete: "engine_type", placeholder: "Petrol or Dieseil... etc" , class: "mx-2 form-control"%>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-2">
+      <div class="col-2 text-start">
+        <%= f.label "#{:price}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :price, autofocus: true, autocomplete: "price", placeholder: "Price (PKR)" , class: " mx-2 form-control"%>
+      </div>
+      <div class="col-2 text-end">
+        <%= f.label "#{:transmission}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys.to_a.map {|key| [key.titleize, key]}), {},class: "mx-2 form-select" %>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-2">
+      <div class="col-2 text-start">
+        <%= f.label "#{:color}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :color, autofocus: true, autocomplete: "color", placeholder: "Color Name" , class: " mx-2 form-control"%>
+      </div>
+      <div class="col-2 text-end">
+        <%= f.label "#{:assembly_type}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.select :assembly_type, options_for_select(Vehicle.assembly_types.keys.to_a.map {|key| [key.titleize, key]}), {},class: "mx-2 form-select" %>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-2">
+      <div class="col-2 text-start">
+        <%= f.label "#{:engine_capacity}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :engine_capacity, autofocus: true, autocomplete: "engine_capacity", placeholder: "Engine Capacity (CC)" , class: " mx-2 form-control"%>
+      </div>
+    </div>
+
+
+    <div class="actions mt-3">
+      <%= f.submit "Next Step", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

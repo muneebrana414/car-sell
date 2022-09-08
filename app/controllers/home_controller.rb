@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user! 
+
   def index
+    #     @filters = ActiveModel::Type::Boolean.new.cast(params.fetch(:filters, true))
     @filters = true
   end
 

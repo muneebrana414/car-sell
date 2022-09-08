@@ -1,0 +1,21 @@
+<div class="container-fluid w-50 border rounded shadow my-3 py-2 text-center">
+  <%= render "step-count" %>
+
+  <%= form_for @vehicle, url: next_wizard_path, method: 'PUT' do |f| %>
+    <div class="row g-3 align-items-center my-2">
+      <%= f.hidden_field :vehicle_id, value: @verticle.id %>
+      <div class="col-auto">
+        <%= f.label :city , class: "form-label"%>
+      </div>
+      <div class="col-auto">
+        <%= f.text_field :city, autofocus: true, autocomplete: "city" , class: "mx-2 form-control"%>
+      </div>
+    </div>
+
+    <div class="actions mt-5">
+      <%= link_to "Previous Step", previous_wizard_path(vehicle_id: @vehicle.id), class: "btn btn-dark" %>
+      <%= f.submit "Next Step", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+

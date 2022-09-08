@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220906102345) do
+ActiveRecord::Schema.define(version: 20220907102432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20220906102345) do
     t.string   "phone_number",                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "city",              default: "", null: false
+    t.string   "milage",            default: "", null: false
+    t.string   "price",             default: "", null: false
+    t.string   "color",             default: "", null: false
+    t.integer  "transmission",      default: 0,  null: false
+    t.string   "model",             default: "", null: false
+    t.string   "engine_type",       default: "", null: false
+    t.string   "engine_capacity",   default: "", null: false
+    t.integer  "assembly_type",     default: 0,  null: false
+    t.string   "primary_contact",   default: "", null: false
+    t.string   "secondary_contact", default: "", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end

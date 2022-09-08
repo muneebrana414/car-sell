@@ -4,7 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# Use wicked for multi-step form'
+gem 'wicked'
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]
