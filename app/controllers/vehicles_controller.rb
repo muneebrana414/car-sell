@@ -13,9 +13,19 @@ class VehiclesController < ApplicationController
     when :vehicle_images
       @vehicle.update(user_detail_params)
     when :vehicle_contacts
-      
+      @vehicle.update(user_image_params)
     end
-    render_wizard
+    if params[:id] != "wicked_finish"
+      render_wizard
+    else
+      render "wicked_finish"
+    end
+  end
+
+  def wicked_finish
+  end
+  def finish_wizard_path
+    @vehicle.update(user_contact_params)
   end
 
   private
@@ -28,5 +38,13 @@ class VehiclesController < ApplicationController
 
   def user_detail_params
     params.require(:vehicle).permit(:city, :milage, :model, :engine_type, :price, :transmission, :color, :assembly_type, :engine_capacity)
+  end
+
+  def user_image_params
+    params.require(:vehicle).permit(pictures: [])
+  end
+
+  def user_contact_params
+    params.require(:vehicle).permit(:primary_contact,:secondary_contact)
   end
 end

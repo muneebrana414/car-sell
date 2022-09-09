@@ -2,6 +2,7 @@
   <%= render "step-count" %>
 
   <%= form_for @vehicle, url: next_wizard_path, method: 'PUT' do |f| %>
+    <%= f.hidden_field :vehicle_id, value: @vehicle.id %>
     <div class="row g-3 align-items-center my-2">
       <div class="col-3 text-start">
         <%= f.label "#{:primary_contact}*" , class: "form-label"%>
