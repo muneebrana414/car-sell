@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 # Use wicked for multi-step form'
 gem 'wicked'
+gem "select2-rails"
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]

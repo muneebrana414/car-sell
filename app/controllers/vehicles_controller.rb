@@ -18,14 +18,9 @@ class VehiclesController < ApplicationController
     if params[:id] != "wicked_finish"
       render_wizard
     else
+      @vehicle.update(user_contact_params)
       render "wicked_finish"
     end
-  end
-
-  def wicked_finish
-  end
-  def finish_wizard_path
-    @vehicle.update(user_contact_params)
   end
 
   private
