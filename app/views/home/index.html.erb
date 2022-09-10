@@ -1,3 +1,27 @@
 <div id='home-filters'>
   <%= render "home/search", filters: @filters %>
 </div>
+<div class="w-50 border bg-secondary rounded shadow my-3 py-2 text-center container">
+  <% @vehicles.each do |vehicle| %>
+    <div class="d-flex mb-3">
+      <div class="card w-25">
+        <%= image_tag vehicle.pictures.first, style:'height:150px;width:100%;object-fit:cover;', class: 'img-fluid' if vehicle.pictures.any?%>
+      </div>
+      <div class="mx-2"></div>
+      <div class="card w-75">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title"><%= vehicle.city.titleize %></h5>
+            <h5 class="card-title"><%= vehicle.price %></h5>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-light btn-sm">&#9829;</button>
+            <button type="button" class="btn btn-success">Show Phone No.</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

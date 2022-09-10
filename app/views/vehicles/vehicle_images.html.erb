@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <%= image_tag @vehicle.pictures.first, class: 'image-keeper' if @vehicle.pictures.present? %>
+    <%= image_tag @vehicle.pictures.first, class: 'w-25' if @vehicle.pictures.present? %>
     <div class="actions mt-5">
       <%= link_to "Previous Step", previous_wizard_path(vehicle_id: @vehicle.id), class: "btn btn-dark" %>
       <%= f.submit "Next Step", class: "btn btn-primary" %>
