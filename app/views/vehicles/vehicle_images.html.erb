@@ -8,8 +8,9 @@
         <%= f.file_field :pictures, class: "form-control", multiple: true %>
       </div>
     </div>
-
-    <%= image_tag @vehicle.pictures.first, class: 'w-25' if @vehicle.pictures.present? %>
+    <% @vehicle.pictures.each do |picture| %>
+      <%= image_tag picture, style:'height:150px;width:150px;object-fit:cover;' %>
+    <% end %>
     <div class="actions mt-5">
       <%= link_to "Previous Step", previous_wizard_path(vehicle_id: @vehicle.id), class: "btn btn-dark" %>
       <%= f.submit "Next Step", class: "btn btn-primary" %>

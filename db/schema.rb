@@ -60,7 +60,8 @@ ActiveRecord::Schema.define(version: 2022_09_09_072848) do
   create_table "vehicles", id: :serial, force: :cascade do |t|
     t.string "city", default: "", null: false
     t.string "milage", default: "", null: false
-    t.decimal "price", precision: 10, scale: 2, null: false
+    t.decimal "price", precision: 10, scale: 2
+    t.string "currency"
     t.string "color", default: "", null: false
     t.integer "transmission", default: 0, null: false
     t.string "model", default: "", null: false

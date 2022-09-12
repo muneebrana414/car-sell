@@ -8,7 +8,7 @@
         <%= f.label "#{:city}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :city, options_for_select(["rawalpindi","lahore","quetta","karachi","peshawar","islamabad"].to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :city, options_for_select(["rawalpindi","lahore","quetta","karachi","peshawar","islamabad"].to_a.map {|key| [key.titleize, key]}, @vehicle.city), {},class: "form-select" %>
       </div>
       <div class="col-2 text-end">
         <%= f.label "#{:milage}*" , class: "form-label"%>
@@ -23,13 +23,13 @@
         <%= f.label "#{:model}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :model, options_for_select(["honda","suzuki","toyota","mercedess"].to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :model, options_for_select(["honda","suzuki","toyota","mercedess"].to_a.map {|key| [key.titleize, key]}, @vehicle.model), {},class: "form-select" %>
       </div>
       <div class="col-2 text-end">
         <%= f.label "#{:engine_type}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :engine_type, options_for_select(["petrol","diesel","hybrid"].to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :engine_type, options_for_select(["petrol","diesel","hybrid"].to_a.map {|key| [key.titleize, key]}, @vehicle.engine_type), {},class: "form-select" %>
       </div>
     </div>
 
@@ -41,25 +41,25 @@
         <%= f.text_field :price, autofocus: true, autocomplete: "price", placeholder: "Price (PKR)" , class: "form-control"%>
       </div>
       <div class="col-2 text-end">
-        <%= f.label "#{:transmission}*" , class: "form-label"%>
+        <%= f.label "#{:currency}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys.to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :currency, options_for_select(["hundred","thousand","million","billion"].to_a.map {|key| [key.titleize, key]}, @vehicle.currency), {},class: "form-select" %>
       </div>
     </div>
-
+ 
     <div class="row g-3 align-items-center my-2">
       <div class="col-2 text-start">
         <%= f.label "#{:color}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :color, options_for_select(["black","white","gray","silver","red"].to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :color, options_for_select(["black","white","gray","silver","red"].to_a.map {|key| [key.titleize, key]}, @vehicle.color), {},class: "form-select" %>
       </div>
       <div class="col-2 text-end">
         <%= f.label "#{:assembly_type}*" , class: "form-label"%>
       </div>
       <div class="col-4">
-        <%= f.select :assembly_type, options_for_select(Vehicle.assembly_types.keys.to_a.map {|key| [key.titleize, key]}), {},class: "form-select" %>
+        <%= f.select :assembly_type, options_for_select(Vehicle.assembly_types.keys.to_a.map {|key| [key.titleize, key]}, @vehicle.assembly_type), {},class: "form-select" %>
       </div>
     </div>
 
@@ -69,6 +69,12 @@
       </div>
       <div class="col-4">
         <%= f.text_field :engine_capacity, autofocus: true, autocomplete: "engine_capacity", placeholder: "Engine Capacity (CC)" , class: "form-control"%>
+      </div>
+      <div class="col-2 text-end">
+        <%= f.label "#{:transmission}*" , class: "form-label"%>
+      </div>
+      <div class="col-4">
+        <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys.to_a.map {|key| [key.titleize, key]}, @vehicle.transmission), {},class: "form-select" %>
       </div>
     </div>
 

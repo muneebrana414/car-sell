@@ -3,7 +3,8 @@ class CreateVehicles < ActiveRecord::Migration[5.0]
     create_table :vehicles do |t|
       t.string :city, null: false, default: ""
       t.string :milage, null: false, default: ""
-      t.decimal :price, precision: 10, scale: 2, null: false
+      t.decimal :price, precision: 10, scale: 2
+      t.string :currency
       t.string :color, null: false, default: ""
       t.integer :transmission, null: false, default: 0
       t.string :model, null: false, default: ""

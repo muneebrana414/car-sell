@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/new', to: 'home#new'
+  get 'vehicle/:id', to: 'home#show', as: 'vehicle'
 
   devise_for :users, controllers: {registrations: "registrations"}
 

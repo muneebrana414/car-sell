@@ -32,7 +32,7 @@ class VehiclesController < ApplicationController
   end
 
   def user_detail_params
-    params.require(:vehicle).permit(:city, :milage, :model, :engine_type, :price, :transmission, :color, :assembly_type, :engine_capacity)
+    params.require(:vehicle).permit(:city, :milage, :model, :engine_type, :price, :currency, :transmission, :color, :assembly_type, :engine_capacity)
   end
 
   def user_image_params
