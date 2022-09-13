@@ -25,4 +25,7 @@
     </div>
     <%= render "home/modal", vehicle: vehicle %>
   <% end %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @vehicles %>
+  </div>
 </div>

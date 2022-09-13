@@ -7,6 +7,8 @@ end
 # Use wicked for multi-step form'
 gem 'wicked'
 gem "select2-rails"
+# Use kaminari for pagination'
+gem 'kaminari'
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]
