@@ -32,7 +32,8 @@ class VehiclesController < ApplicationController
   private
 
   def find_vehicle
-    @vehicle = Vehicle.find_by(id: params[:vehicle].present? ? params[:vehicle][:vehicle_id] : params[:vehicle_id])
+    vehicle_id = params.dig(:vehicle, :vehicle_id) || params.dig(:vehicle_id)
+    @vehicle = Vehicle.find_by(id: vehicle_id)
 
     @vehicle = Vehicle.new if @vehicle.blank?
   end
