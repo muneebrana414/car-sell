@@ -4,6 +4,7 @@
   <%= form_for @vehicle, url: next_wizard_path, method: 'PUT' do |f| %>
     <div class="row g-3 align-items-center my-2">
       <%= f.hidden_field :vehicle_id, value: params[:vehicle_id] %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="col-2 text-start">
         <%= f.label "#{:city}*" , class: "form-label"%>
       </div>

@@ -1,0 +1,59 @@
+<div class="bg-success py-2">
+  <div class="d-flex mx-5 my-2 align-items-center">
+    <%= link_to "", root_path, class: 'btn btn-dark carousel-control-prev-icon' %>
+    <div class="d-flex container justify-content-between">
+      <h5 class="card-title"><%= @vehicle.city.titleize %></h5>
+      <h5 class="card-title">PKR <%= @vehicle.price %> <%= @vehicle.currency.titleize %></h5>
+    </div>
+  </div>
+</div>
+<div class="d-flex my-3 text-center container">
+  <div class="w-50 mx-2">
+    <div class="border">
+      <div class="d-flex justify-content-end">
+        <%= link_to home_add_to_favorite_path(vehicle_id: @vehicle.id), method: :patch, remote: true do %>
+          <% if current_user.favorited?(@vehicle) %>
+            <%= fa_icon 'heart', class: 'text-danger btn btn-sm h-100 py-2' %>
+          <% else %>
+            <%= fa_icon 'heart', class: 'text-muted  btn btn-sm h-100 py-2' %>
+          <% end %>
+        <% end %>
+        <%= fa_icon 'copy',class: 'text-muted btn btn-sm h-100 py-2 mx-1' %>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide m-5 border" data-bs-ride="carousel">
+        <div class="carousel-indicators bg-dark">
+            <% @vehicle.pictures.each_with_index do |picture,index| %>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>" aria-current="true"></button>
+            <% end %>
+        </div>
+        <div class="carousel-inner">
+          <% @vehicle.pictures.each_with_index do |picture,index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= image_tag picture, style: 'height:300px;width:100%;object-fit:cover;' %>
+              </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="w-50 border shadow mx-2 text-end">
+    <%= link_to "Edit Ad", vehicles_path(vehicle_id: @vehicle.id), class: "btn btn-primary m-2" %>
+    <ul class="w-100 container mt-3">
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Car Make/Model</h6> <p class="text-muted"><%= @vehicle.model.titleize %></p></li>
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Engine Type</h6> <p class="text-muted"><%= @vehicle.engine_type.titleize %></p></li>
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Engine Capacity</h6> <p class="text-muted"><%= @vehicle.engine_capacity %></p></li>
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Milage</h6> <p class="text-muted"><%= @vehicle.milage %></p></li>
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Color</h6> <p class="text-muted"><%= @vehicle.color.titleize %></p></li>
+      <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Assembly Type</h6> <p class="text-muted"><%= @vehicle.assembly_type.titleize %></p></li>
+      <li class="d-flex border-bottom align-items-center justify-content-between"><h6>Transmission</h6> <p class="text-muted"><%= @vehicle.transmission.titleize %></p></li>
+    </ul>
+  </div>
+</div>

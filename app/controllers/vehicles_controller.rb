@@ -4,6 +4,12 @@ class VehiclesController < ApplicationController
 
   steps :vehicle_details, :vehicle_images, :vehicle_contacts
 
+  def user_listing
+    @vehicles = current_user.vehicles.page(params[:page])
+  end
+
+  def favorite_vehicles; end
+
   def show
     render_wizard
   end
@@ -32,7 +38,7 @@ class VehiclesController < ApplicationController
   end
 
   def user_detail_params
-    params.require(:vehicle).permit(:city, :milage, :model, :engine_type, :price, :currency, :transmission, :color, :assembly_type, :engine_capacity)
+    params.require(:vehicle).permit(:city, :milage, :model, :engine_type, :price, :currency, :transmission, :color, :assembly_type, :engine_capacity, :user_id)
   end
 
   def user_image_params

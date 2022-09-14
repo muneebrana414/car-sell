@@ -1,5 +1,9 @@
 class User < ApplicationRecord
+  acts_as_favoritor
+
   attribute :login, :string
+
+  has_many :vehicles
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,5 +19,5 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:phone_number) || conditions.has_key?(:email)
       where(conditions.to_h).first 
     end 
-  end 
+  end
 end

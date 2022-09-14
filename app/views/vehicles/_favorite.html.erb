@@ -1,0 +1,15 @@
+<div class="w-50 border rounded shadow my-3 p-0 container">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active text-center" aria-current="true">
+      Favorites
+    </a>
+    <% current_user.all_favorited.each do |vehicle| %>
+      <div class='list-group-item list-group-item-action d-flex justify-content-between align-items-center'>
+        <p class="m-0"><%= link_to vehicle.city.titleize, vehicle_path(vehicle) %></p>
+        <p class="m-0">
+          <%= link_to (fa_icon 'heart'),home_add_to_favorite_path(vehicle_id: vehicle.id, favorite_list: true), method: :patch, remote: true, class: 'text-danger btn btn-sm' %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

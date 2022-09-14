@@ -9,6 +9,12 @@ gem 'wicked'
 gem "select2-rails"
 # Use kaminari for pagination'
 gem 'kaminari'
+# Use acts_as_favoritor for Favouriting ad'
+gem 'acts_as_favoritor'
+# Use font-awesome-rails for icons'
+gem "font-awesome-rails"
+# Use letter_opener for mailing'
+gem 'letter_opener'
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]
