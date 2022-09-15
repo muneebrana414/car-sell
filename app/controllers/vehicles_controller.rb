@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
 
   def user_listing
     @vehicles = current_user.vehicles.page(params[:page])

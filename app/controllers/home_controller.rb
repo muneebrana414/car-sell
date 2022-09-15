@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @filters = ActiveModel::Type::Boolean.new.cast(params.fetch(:filters, false))
-    @vehicles = Vehicle.page(params[:page])
+    @vehicles = Vehicle.where.not(primary_contact: "").page(params[:page])
   end
 
   def add_to_favorite

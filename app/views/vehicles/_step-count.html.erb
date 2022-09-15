@@ -1,5 +1,5 @@
 <ul id="progressbar">
   <li class="active" id="vehicle-detail"><strong>Vehicle Detail</strong></li>
-  <li id="vehicle-image" class = "<%= params[:id] == "vehicle_images" || params[:id] == "vehicle_contacts"  ? "active" : "" %>"><strong>Vehicle Images</strong></li>
-  <li id="contact-detail" class = "<%= params[:id] == "vehicle_contacts" ? "active" : "" %>"><strong>Contact Details</strong></li>
+  <li id="vehicle-image" class = "<%= params[:id] == "images" || params[:id] == "contacts"  ? "active" : "" %>"><strong>Vehicle Images</strong></li>
+  <li id="contact-detail" class = "<%= params[:id] == "contacts" ? "active" : "" %>"><strong>Contact Details</strong></li>
 </ul>

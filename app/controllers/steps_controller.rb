@@ -1,6 +1,8 @@
 class StepsController < ApplicationController
   include Wicked::Wizard
+  before_action :authenticate_user!
   before_action :find_vehicle, only: [:show, :update]
+  before_action :validate_user, only: [:show, :update]
   
   steps *Vehicle.form_steps
 
@@ -19,6 +21,10 @@ class StepsController < ApplicationController
     @vehicle = Vehicle.find(params[:vehicle_id])
   end
 
+  def validate_user
+    @authorized = current_user.id == @vehicle.user_id
+    redirect_to vehicle_path(@vehicle), notice: "Not Authorized" unless @authorized
+  end
 
   def vehicle_params(step)
     permitted_attributes = case step

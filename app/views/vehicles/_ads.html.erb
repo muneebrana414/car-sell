@@ -21,11 +21,13 @@
                 <%= fa_icon 'heart', class: 'text-muted  btn btn-sm h-100 py-2' %>
               <% end %>
             <% end %>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#show_number<%= vehicle.id %>">Show Phone No.</button>
           <% end %>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#show_number<%= vehicle.id %>">Show Phone No.</button>
         </div>
       </div>
     </div>
   </div>
-  <%= render "home/modal", vehicle: vehicle %>
+  <% if user_signed_in? %>
+    <%= render "home/modal", vehicle: vehicle %>
+  <% end %>
 <% end %>

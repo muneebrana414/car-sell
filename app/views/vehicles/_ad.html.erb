@@ -1,6 +1,6 @@
-<div class="bg-success py-2">
+<div class="bg-success text-light py-2">
   <div class="d-flex mx-5 my-2 align-items-center">
-    <%= link_to "", :back, class: 'btn btn-dark carousel-control-prev-icon' %>
+    <%= link_to "", root_path, class: 'btn btn-dark carousel-control-prev-icon' %>
     <div class="d-flex container justify-content-between">
       <h5 class="card-title"><%= @vehicles.city.titleize %></h5>
       <h5 class="card-title">PKR <%= @vehicles.price %> <%= @vehicles.currency.titleize %></h5>
@@ -47,7 +47,10 @@
     </div>
   </div>
   <div class="w-50 border shadow mx-2 text-end">
-    <%= link_to "Edit Ad", vehicle_steps_path(@vehicles), class: "btn btn-primary m-2" %>
+    <% if policy(@vehicles).edit? %>
+      <%= link_to "Edit Ad", vehicle_steps_path(@vehicles), class: "btn btn-primary m-2" %>
+      <%= link_to "Delete Ad", vehicle_steps_path(@vehicles), class: "btn btn-danger m-2" %>
+    <% end %>
     <ul class="w-100 container mt-3">
       <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Car Make/Model</h6> <p class="text-muted"><%= @vehicles.model.titleize %></p></li>
       <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Engine Type</h6> <p class="text-muted"><%= @vehicles.engine_type.titleize %></p></li>
