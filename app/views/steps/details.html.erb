@@ -1,10 +1,8 @@
 <div class="container-fluid border rounded shadow my-3 py-2 text-center" style="width: 52rem">
-  <%= render "step-count" %>
+  <%= render "vehicles/step-count" %>
 
-  <%= form_for @vehicle, url: next_wizard_path, method: 'PUT' do |f| %>
+  <%= form_for @vehicle, url: wizard_path, method: 'PUT' do |f| %>
     <div class="row g-3 align-items-center my-2">
-      <%= f.hidden_field :vehicle_id, value: params[:vehicle_id] %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="col-2 text-start">
         <%= f.label "#{:city}*" , class: "form-label"%>
       </div>
@@ -16,6 +14,13 @@
       </div>
       <div class="col-4">
         <%= f.text_field :milage, autofocus: true, autocomplete: "milage", placeholder: "Milage (Km/h)" , class: "form-control"%>
+        <% if @vehicle.errors.any? %>
+          <div class="invalid-feedback d-block">
+            <% @vehicle.errors.full_messages_for(:milage).each do |error_message| %>
+              <%= error_message %>.
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
 
@@ -40,6 +45,13 @@
       </div>
       <div class="col-4">
         <%= f.text_field :price, autofocus: true, autocomplete: "price", placeholder: "Price (PKR)" , class: "form-control"%>
+        <% if @vehicle.errors.any? %>
+          <div class="invalid-feedback d-block">
+            <% @vehicle.errors.full_messages_for(:price).each do |error_message| %>
+              <%= error_message %>.
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="col-2 text-end">
         <%= f.label "#{:currency}*" , class: "form-label"%>
@@ -70,6 +82,13 @@
       </div>
       <div class="col-4">
         <%= f.text_field :engine_capacity, autofocus: true, autocomplete: "engine_capacity", placeholder: "Engine Capacity (CC)" , class: "form-control"%>
+        <% if @vehicle.errors.any? %>
+          <div class="invalid-feedback d-block">
+            <% @vehicle.errors.full_messages_for(:engine_capacity).each do |error_message| %>
+              <%= error_message %>.
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="col-2 text-end">
         <%= f.label "#{:transmission}*" , class: "form-label"%>

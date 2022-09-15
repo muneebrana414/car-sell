@@ -6,10 +6,6 @@ class HomeController < ApplicationController
     @vehicles = Vehicle.page(params[:page])
   end
 
-  def show
-    @vehicles = Vehicle.find(params[:id])
-  end
-
   def add_to_favorite
     result = AddToFavorite.call(
       current_user: current_user,

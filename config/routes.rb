@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get 'home/new', to: 'home#new'
   patch 'home/add_to_favorite'
-  get 'vehicle/list/:id', to: 'home#show', as: 'vehicle'
 
   devise_for :users, controllers: {registrations: "registrations"}
 
   resources :vehicles do
+    resources :steps
     collection do
       get :favorite_vehicles
       get :user_listing
