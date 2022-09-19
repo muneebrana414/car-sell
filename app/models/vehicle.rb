@@ -1,4 +1,6 @@
 class Vehicle < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:price, :milage, :engine_capacity, :model, :city, :color, :transmission, :engine_type, :assembly_type]
   cattr_accessor :form_steps do
     %w(details images contacts)
   end

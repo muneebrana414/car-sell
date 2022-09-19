@@ -47,9 +47,11 @@
     </div>
   </div>
   <div class="w-50 border shadow mx-2 text-end">
-    <% if policy(@vehicles).edit? %>
-      <%= link_to "Edit Ad", vehicle_steps_path(@vehicles), class: "btn btn-primary m-2" %>
-      <%= link_to "Delete Ad", vehicle_steps_path(@vehicles), class: "btn btn-danger m-2" %>
+    <% if user_signed_in? %>
+      <% if policy(@vehicles).edit? %>
+        <%= link_to "Edit Ad", vehicle_steps_path(@vehicles), class: "btn btn-primary m-2" %>
+        <%= link_to "Delete Ad", vehicle_steps_path(@vehicles), class: "btn btn-danger m-2" %>
+      <% end %>
     <% end %>
     <ul class="w-100 container mt-3">
       <li class="d-flex border-bottom mb-3 align-items-center justify-content-between"><h6>Car Make/Model</h6> <p class="text-muted"><%= @vehicles.model.titleize %></p></li>

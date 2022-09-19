@@ -2,8 +2,12 @@ class HomeController < ApplicationController
   before_action :find_vehicle, only: [:add_to_favorite]
 
   def index
-    @filters = ActiveModel::Type::Boolean.new.cast(params.fetch(:filters, false))
-    @vehicles = Vehicle.where.not(primary_contact: "").page(params[:page])
+    result = SearchFilters.call(
+      searching_filters: search_params.values.reject(&:blank?),
+      page: params[:page]
+    )
+    flash[:notice] = 'No record find.' if result.flash
+    @vehicles = result.vehicles
   end
 
   def add_to_favorite
@@ -20,6 +24,9 @@ class HomeController < ApplicationController
 
   private
 
+  def search_params
+    params.permit(:price, :milage, :engine_capacity, :model, :city, :color, :transmission, :engine_type, :assembly_type)
+  end
   def find_vehicle
     vehicle_id = params.dig(:vehicle, :vehicle_id) || params.dig(:vehicle_id)
     @vehicle = Vehicle.find_by(id: vehicle_id)

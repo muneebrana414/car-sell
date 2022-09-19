@@ -4,6 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+# Use pg_search for search'
+gem 'pg_search'
 # Use pundit for authorization'
 gem "pundit"
 # Use interactor for seprating bussines logic'
