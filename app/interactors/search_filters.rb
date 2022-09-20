@@ -14,7 +14,7 @@ class SearchFilters < ApplicationInteractor
         context.vehicles = Vehicle.where(id: @ids).page(page)
       else
         context.flash = true
-        context.vehicles = Vehicle.where(primary_contact: "").page(page)
+        context.vehicles = @record
       end
     else
       context.vehicles = Vehicle.where.not(primary_contact: "").page(page)

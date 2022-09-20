@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    get 'home/index'
+    patch 'home/add_to_favorite'
     resources :vehicles do
       collection do
         get :favorite_vehicles
