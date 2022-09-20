@@ -11,6 +11,15 @@ Rails.application.routes.draw do
       get :user_listing
     end
   end
+
+  namespace :api do
+    resources :vehicles do
+      collection do
+        get :favorite_vehicles
+        get :user_listing
+      end
+    end
+  end
   #get 'vehicle/favorite_vehicles', to: 'vehicles#favorite_vehicles', as: 'favorite_vehicles'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
