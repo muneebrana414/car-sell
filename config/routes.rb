@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   namespace :api do
     get 'home/index'
     patch 'home/add_to_favorite'
+    post :auth, to: "authentication#create"
+    devise_for :users, controllers: {sessions: "api/sessions"}
     resources :vehicles do
       collection do
         get :favorite_vehicles

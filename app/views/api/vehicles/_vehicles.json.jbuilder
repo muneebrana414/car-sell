@@ -19,4 +19,4 @@ json.vehicles do |json|
     json.pictures vehicle.pictures
   end
 end
-json.total_count @vehicles.size
+json.total_count vehicles.size

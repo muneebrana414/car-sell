@@ -9,6 +9,9 @@ class VehiclePolicy < ApplicationPolicy
     creator?
   end
 
+  def update?
+    creator?
+  end
   private
 
   def creator?

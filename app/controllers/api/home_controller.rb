@@ -1,6 +1,6 @@
-class Api::HomeController < ApplicationController
+class Api::HomeController < Api::ApplicationController
+  before_action :authenticate_user!, only: [:add_to_favorite]
   before_action :find_vehicle, only: [:add_to_favorite]
-  skip_before_action :verify_authenticity_token
 
   def index
     result = SearchFilters.call(
@@ -12,7 +12,7 @@ class Api::HomeController < ApplicationController
 
   def add_to_favorite
     result = AddToFavorite.call(
-      current_user: User.find(6),
+      current_user: current_user,
       vehicle: @vehicle,
       page: params[:page],
       vehicle_id: params[:vehicle_id]
