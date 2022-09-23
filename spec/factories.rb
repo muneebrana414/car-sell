@@ -3,13 +3,13 @@ FactoryBot.define do
     email { Faker::Internet.email }
     username { Faker::Internet.username(specifier: 8) }
     phone_number { Faker::PhoneNumber.phone_number }
-    password { Faker::Internet.password(min_length: 8, mix_case: true, special_characters: true) }
+    password { 'Infinikorn@0' }
   end
 
   factory :vehicle do
     city { Faker::name }
     model { Faker::Vehicle.make }
-    price { Faker::Number.number(digits: 10) }
+    price { Faker::Number.number(digits: 2) }
     assembly_type { 'local' }
     engine_capacity { Faker::Vehicle.engine }
     engine_type { Faker::Vehicle.fuel_type }
