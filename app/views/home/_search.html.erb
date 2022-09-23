@@ -1,0 +1,106 @@
+<%= form_for :vehicle, url: root_path, method: 'get' do |f| %>
+  <div class="w-50 border bg-secondary rounded shadow my-3 py-2 text-center container">
+    <div class="container">
+      <div class="row my-2">
+        <div class="col model-container">
+          <select class="form-control filters" name="model">
+          <option value="" class="text-muted">Models</option>
+            <option value="honda">Honda</option>
+            <option value="suzuki">Suzuki</option>
+            <option value="mehran">Mehran</option>
+          </select>
+        </div>
+        <div class="col cities-container">
+          <select class="form-control filters" name="city">
+          <option value="" class="text-muted">Cities</option>
+            <option value="rawalpindi">Rawalpindi</option>
+            <option value="quetta">Quetta</option>
+            <option value="karachi">Karachi</option>
+            <option value="lahore">Lahore</option>
+            <option value="peshawar">Peshawar</option>
+            <option value="islamabad">Islamabad</option>
+          </select>
+        </div>
+        <div class="col price-container">
+          <select class="form-control filters" name="price">
+              <option value="" class="text-muted">Price</option>
+              <option value="5">Under 5 lac</option>
+              <option value="10">Under 10 lac</option>
+              <option value="15">Under 15 lac</option>
+              <option value="20">Under 20 lac</option>
+              <option value="25">Under 25 lac</option>
+            </select>
+        </div>
+      </div>
+
+      <div id="hide-filters">
+        <div class="row">
+          <div class="col engine-container">
+            <select class="form-control filters" name="engine_type">
+              <option value="" class="text-muted">Engine Type</option>
+              <option value="petrol">Petrol</option>
+              <option value="diesel">Diesel</option>
+              <option value="cng">CNG</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+          <div class="col transision-container">
+            <select class="form-control filters" name="transmission">
+              <option value="" class="text-muted">Transision</option>
+              <option value="automatic">Automatic</option>
+              <option value="manual">Manual</option>
+            </select>
+          </div>
+          <div class="col color-container">
+            <select class="form-control filters" name="color">
+              <option value="" class="text-muted">Color</option>
+              <option value="white">White</option>
+              <option value="silver">Silver</option>
+              <option value="black">Black</option>
+              <option value="grey">Grey</option>
+              <option value="blue">Blue</option>
+            </select>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col millage-container">
+            <select class="form-control filters" name="milage">
+              <option value="" class="text-muted">Millage</option>
+              <option value="10">Upto 10</option>
+              <option value="12">Upto 12</option>
+              <option value="15">Upto 15</option>
+              <option value="18">Upto 18</option>
+              <option value="20">Upto 20</option>
+            </select>
+          </div>
+          <div class="col enigne-capacity-container">
+            <select class="form-control filters" name="engine_capacity">
+              <option value="" class="text-muted">Engine Capacity</option>
+              <option value="600">600</option>
+              <option value="1000">1000</option>
+              <option value="1200">1200</option>
+              <option value="1500">1500</option>
+              <option value="1800">1800</option>
+            </select>
+          </div>
+          <div class="col assembly-container">
+            <select class="form-control filters" name="assembly_type">
+              <option value="" class="text-muted">Assembly Type</option>
+              <option value="local">Local</option>
+              <option value="import">Import</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between container align-items-center">
+      <div id='filter-arrow' class="dropup">
+        <p id="toggle-btn" role="button" class="text-light dropdown-toggle m-0">Less Filters</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <%= f.submit "Search", class: "btn btn-primary mx-2"%>
+        <p id="clear-filters" role='button' class="text-light m-0">Clear Filters</p>
+      </div>
+    </div>
+  </div>
+<% end %>

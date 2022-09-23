@@ -4,14 +4,32 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# Use jwt for auth token'
+gem 'jwt'
+# Use pg_search for search'
+gem 'pg_search'
+# Use pundit for authorization'
+gem "pundit"
+# Use interactor for seprating bussines logic'
+gem "interactor-rails", "~> 2.0"
+# Use wicked for multi-step form'
+gem 'wicked'
+gem "select2-rails"
+# Use kaminari for pagination'
+gem 'kaminari'
+# Use acts_as_favoritor for Favouriting ad'
+gem 'acts_as_favoritor'
+# Use font-awesome-rails for icons'
+gem "font-awesome-rails"
+# Use letter_opener for mailing'
+gem 'letter_opener'
 # Use devise for user authentication'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development]
 # Use bootstrap for design'
 gem 'bootstrap', '~> 5.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
+gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

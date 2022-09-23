@@ -13,8 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require select2
+//= require_tree .
+
+function toasterRemove(){
+	for(let i = 0; i < document.getElementsByClassName('toast').length; i++){
+	  let toast = document.getElementsByClassName('toast')[i]
+	  toast.classList.remove('d-flex')
+	}
+}
+
+if(document.getElementsByClassName('toast')){
+	setTimeout(toasterRemove, 3000)
+}
+
+clearTimeout(toasterRemove)

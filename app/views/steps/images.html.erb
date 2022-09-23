@@ -1,0 +1,27 @@
+<div class="container-fluid w-50 border rounded shadow my-3 py-2 text-center">
+  <%= render "vehicles/step-count" %>
+
+  <%= form_for @vehicle, url: wizard_path, method: "PUT" do |f| %>
+    <%= f.hidden_field :vehicle_id, value: params[:vehicle_id] %>
+    <div class="row g-3 align-items-center my-2">
+      <div class="col-auto">
+        <%= f.file_field :pictures, class: "form-control", multiple: true %>
+        <% if @vehicle.errors.any? %>
+          <div class="invalid-feedback d-block">
+            <% @vehicle.errors.full_messages_for(:pictures).each do |error_message| %>
+              <%= error_message %>.
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% @vehicle.pictures.each do |picture| %>
+      <%= image_tag picture, style:'height:150px;width:150px;object-fit:cover;' %>
+    <% end %>
+    <div class="actions mt-5">
+      <%= link_to "Previous Step", previous_wizard_path, class: "btn btn-dark" %>
+      <%= f.submit "Next Step", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+

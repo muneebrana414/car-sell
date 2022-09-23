@@ -11,9 +11,9 @@
   <body>
     <div>
       <%= render "layouts/header"%>
-      <% if notice %>
+      <% if notice || alert %>
         <div class="position-absolute toast-container top-0 end-0 p-5">
-          <%= render partial: "layouts/toaster", locals:{:message => notice}%>
+          <%= render partial: "layouts/toaster", locals:{:message => notice || alert}%>
         </div>
       <% end %>
     </div>

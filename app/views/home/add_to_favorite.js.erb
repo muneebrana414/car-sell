@@ -1,0 +1,7 @@
+<% if @favorite_list == true %>
+  $('#favourite-ads').html("<%= j render partial: 'vehicles/favorite' %>")
+<% elsif @favorite_list == false %>
+  $('#vehicle-ads').html("<%= j render partial: 'vehicles/ads' %>")
+<% else %>
+  $('#ad').html("<%= j render partial: 'vehicles/ad' %>")
+<% end %>
