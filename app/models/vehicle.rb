@@ -15,7 +15,9 @@ class Vehicle < ApplicationRecord
 
   has_many_attached :pictures
 
-  validates :price, :milage, :engine_capacity,  presence: true, if: -> { required_for_step?(:details) }
+  validates :price, :milage, :engine_capacity,  
+            :city, :engine_type, :assembly_type, 
+            :model, :currency, :color, :transmission, presence: true, if: -> { required_for_step?(:details) }
   validates :pictures,  presence: true, if: -> { required_for_step?(:images) }
   validates :primary_contact, presence: true, if: -> { required_for_step?(:contacts) }
 

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'home/index'
     patch 'home/add_to_favorite'
     post :auth, to: "authentication#create"
-    devise_for :users, controllers: {sessions: "api/sessions"}
+    delete :auth, to: "authentication#destroy"
     resources :vehicles do
       collection do
         get :favorite_vehicles

@@ -11,8 +11,6 @@ class VehiclesController < ApplicationController
     @vehicles = Vehicle.find(params[:id])
   end
 
-  def update; end
-
   def create
     @vehicle = current_user.vehicles.build
     @vehicle.save(validate: false)
